@@ -1,5 +1,5 @@
 import csv
-
+from django.utils.text import slugify
 from django.core.management.base import BaseCommand
 from phones.models import Phone
 
@@ -13,5 +13,15 @@ class Command(BaseCommand):
             phones = list(csv.DictReader(file, delimiter=';'))
 
         for phone in phones:
-            # TODO: Добавьте сохранение модели
-            pass
+            Phone.objects.create(
+            id=phone['id'],
+            name=phone['name'],
+            image=phone['image'],  
+            price=float(phone['price']),
+            release_date=phone['release_date'],
+            lte_exists=phone['lte_exists'],
+            slug = slugify(phone['name'])
+        )
+            
+            
+

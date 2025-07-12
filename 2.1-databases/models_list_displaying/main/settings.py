@@ -56,9 +56,16 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'netology_models_list',
         'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'PORT': '5434',
+        'USER': 'postgres',
+        'PASSWORD': 'iswms',
+        'OPTIONS': {
+            'client_encoding': 'UTF8',  # явно указываем кодировку
+        }
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -119,3 +126,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
