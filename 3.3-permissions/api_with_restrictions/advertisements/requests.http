@@ -1,0 +1,7 @@
+@baseUrl = http://localhost:8000/api
+
+
+#  получение объявлений
+GET {{baseUrl}}/advertisements/
+Authorization: Token b3c7b071114b6df08ed28638e185566c47bba7d9
+Content-Type: application/json
